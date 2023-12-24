@@ -1,5 +1,5 @@
 include("func.jl")
-robot = Robot("7.sit", animate=true)
+robot = Robot("№7/7.sit", animate=true)
 
 function find_hole!(robot)
     side = Nord

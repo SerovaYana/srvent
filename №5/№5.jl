@@ -1,5 +1,5 @@
 include("func.jl")
-robot = Robot("5.sit", animate=true)
+robot = Robot("№5/5.sit", animate=true)
 function mark_perimeter!(robot) 
     steps_sud = num_steps_along!(robot, Sud)
     steps_west = num_steps_along!(robot, West)

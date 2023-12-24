@@ -1,5 +1,5 @@
 include("func.jl")
-robot = Robot("6.sit", animate=true)
+robot = Robot("№6/6.sit", animate=true)
 
 function mark4points!(robot)
     waytostart = to_start_position!(robot)

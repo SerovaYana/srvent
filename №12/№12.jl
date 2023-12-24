@@ -1,4 +1,4 @@
-include("lfunc.jl")
+include("func.jl")
 robot = Robot("11-12.sit", animate=true)
 
 function find_borders_in_row!(robot, side, borders_count)
