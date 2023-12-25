@@ -5,11 +5,13 @@ function HSR.move!(robot, side::Any)
         move!(robot, s)
     end
 end
-HSR.isborder(robot, side::Tuple{HorizonSide, HorizonSide}) = isborder(robot, side[1]) || isborder(robot, side[2]) # 
-inverse(side) = HorizonSide(mod(Int(side)+2, 4))
-leftside(side) = HorizonSide(mod(Int(side)+1, 4))
-rightside(side) = HorizonSide(mod(Int(side)-1, 4))
-inverse(side::Tuple{HorizonSide, HorizonSide}) = inverse.(side)
+HSR.isborder(robot, side::Tuple{HorizonSide, HorizonSide}) = isborder(robot, side[1]) || isborder(robot, side[2]) # проверка isborder для 2 сторон
+inverse(side) = HorizonSide(mod(Int(side)+2, 4)) # разворот стороны на 180
+leftside(side) = HorizonSide(mod(Int(side)+1, 4)) # разворот налево
+rightside(side) = HorizonSide(mod(Int(side)-1, 4)) # разворот направо
+inverse(side::Tuple{HorizonSide, HorizonSide}) = inverse.(side) #разворот на 180 для всех сторон кортежа
+leftside(side::Tuple{HorizonSide, HorizonSide}) = leftside.(side) #разворот налево для всех сторон кортежа
+rightside(side::Tuple{HorizonSide, HorizonSide}) = rightside.(side)
 function num_steps_along!(robot, side) 
     steps = 0
     while !isborder(robot, side)
